@@ -3,8 +3,13 @@
 
 Testing project for the university course 'Software Testing'
 
-The repository contains the source code that is under testing, `package.json` skeleton
-and LICENSE file.
+## Running tests
+
+Run all tests using 
+> npm test 
+
+
+This repository contains the source code library under testing and tests made for it.
 
 Source code folder contains a separate license file that must **NOT** be removed under any circumstances!
 Removing this license file directly violates terms and conditions of the software under testing.
