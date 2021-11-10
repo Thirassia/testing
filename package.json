@@ -5,12 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "mocha"
+    "test": "c8 --exclude src/.internal --exclude test/ mocha --exit",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/.bin/coveralls.js",
+    "coverage": "c8 --exclude src/.internal --exclude test/ report --reporter=text-lcov | coveralls"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "c8": "^7.10.0",
     "chai": "^4.3.4",
     "coveralls": "^3.1.1",
     "mocha": "^9.1.3",
