@@ -1,46 +1,29 @@
-import chai from "chai";
 import defaultTo from "../src/defaultTo.js";
-import add from "../src/add.js";
+import TestMaker from "./utility/utility.js";
 
-const expect = chai.expect;
+const testMaker = new TestMaker(defaultTo);
+
+function testFunction() {
+    let i = 1;
+    i += 1;
+    return i;
+}
+
+const testObject = {
+    hehe: 3,
+};
+
+const testArray = [3, "ldr"];
 
 // Testing defaultTo function with different inputs
 describe("defaultTo", () => {
-    it("does not return null, returns 2nd parameter (number)", () => {
-        const result = 8;
-        expect(defaultTo(null,8)).to.eql(result);
-    });
-    it("returns 1st parameter (number)", () => {
-        const result = 9;
-        expect(defaultTo(9,699)).to.eql(result);
-    });
-    it("does not return undefined, returns 2nd parameter (text)", () => {
-        const result = "text";
-        expect(defaultTo(undefined,"text")).to.eql(result);
-    });
-    // defaultTo function returns NaN, but it should not. Commented out to get build succeed.
-    //it("does not return NaN, returns 2nd parameter (function)", () => {
-    //    const result = add(1,1);
-    //    expect(defaultTo(NaN,add(1,1))).to.eql(result);
-    //});
-    it("returns 1st parameter (false)", () => {
-        const result = false;
-        expect(defaultTo(false,{})).to.eql(result);
-    });
-    it("returns 1st parameter (function)", () => {
-        const result = add(1,1);
-        expect(defaultTo(add(1,1),[])).to.eql(result);
-    });
-    it("returns 1st parameter (text)", () => {
-        const result = "text";
-        expect(defaultTo("text",5)).to.eql(result);
-    });
-    it("returns 1st parameter (object)", () => {
-        const result = {};
-        expect(defaultTo({},10)).to.eql(result);
-    });
-    it("returns 1st parameter (array)", () => {
-        const result = [];
-        expect(defaultTo([],"text")).to.eql(result);
-    });
+    testMaker.testCase("Returns default value (number) instead of null", 8, [null, 8]);
+    testMaker.testCase("Returns value-to-check (number) instead of default (number)", 9, [9, 699]);
+    testMaker.testCase("Returns default value (text) instead of undefined", "text", [undefined, "text"]);
+    testMaker.testCase("Returns default value (function) instead of NaN", testFunction, [NaN, testFunction]);
+    testMaker.testCase("Returns value-to-check (false) instead of default value (object)", false, [false, testObject]);
+    testMaker.testCase("Returns value-to-check (function) instead of default value (array)", testFunction, [testFunction, testArray]);
+    testMaker.testCase("Returns value-to-check (text) instead of default value (number)", "kk", ["kk", -5.3]);
+    testMaker.testCase("Returns value-to-check (object) instead of default value (number)", testObject, [testObject, 0.4]);
+    testMaker.testCase("Returns value-to-check (array) instead of default value (text)", testArray, [testArray, ".fsa"]);
 });
