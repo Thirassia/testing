@@ -105,3 +105,6 @@ dist
 
 # Private coveralls yml file
 .coveralls.yml
+
+#IDE
+.idea/
