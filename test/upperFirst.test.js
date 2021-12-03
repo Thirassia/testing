@@ -1,24 +1,15 @@
-import chai from "chai";
 import upperFirst from "../src/upperFirst.js";
+import TestMaker from "./utility/utility.js";
 
-const expect = chai.expect;
+const testMaker = new TestMaker(upperFirst);
 
 // Testing upperFirst function with different inputs
 describe("upperFirst", () => {
-    it("converts lowercase text properly", () => {
-        const result = "Text";
-        expect(upperFirst("text")).to.eql(result);
-    });
-    it("converts capitalized text properly", () => {
-        const result = "Text";
-        expect(upperFirst("Text")).to.eql(result);
-    });
-    it("converts uppercase text properly", () => {
-        const result = "TEXT";
-        expect(upperFirst("TEXT")).to.eql(result);
-    });
-    it("converts text with multiple words properly", () => {
-        const result = "Result text";
-        expect(upperFirst("result text")).to.eql(result);
-    });
+    testMaker.testCase("Convert lowercase word", "Text", ["text"]);
+    testMaker.testCase("Capitalized word unaltered", "Maybe", ["Maybe"]);
+    testMaker.testCase("Uppercase word unaltered", "YELLING", ["YELLING"]);
+    testMaker.testCase("Convert lowercase sentence", "These be words", ["these be words"]);
+    testMaker.testCase("Convert variable case word starting with lowercase", "AbCDf", ["abCDf"]);
+    testMaker.testCase("Convert variable case sentence with variable case words", "THese Too Are worDS", ["tHese Too Are worDS"]);
+    testMaker.testCase("Word starting with number returned as is", "4our", ["4our"]);
 });
