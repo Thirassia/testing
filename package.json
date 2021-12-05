@@ -10,7 +10,9 @@
   "scripts": {
     "lint": "eslint \"test/**\"",
     "test": "c8 --all --include 'src' --exclude 'src/.internal' --exclude 'test' mocha",
-    "coverage": "c8 report --all --include 'src' --exclude 'src/.internal --exclude 'test' --reporter=text-lcov | coveralls"
+    "coverage": "c8 report --all --include 'src' --exclude 'src/.internal --exclude 'test' --reporter=text-lcov | coveralls",
+    "testin": "c8 --all --include 'src/add.js' --include 'src/ceil.js' --include 'src/compact.js' --include 'src/countBy.js' --include 'src/defaultTo.js' --include 'src/filter.js' --include 'src/reduce.js' --include 'src/toNumber.js' --include 'src/upperFirst.js' --exclude 'src/.internal' --exclude 'test' mocha",
+    "testexcl": "c8 --all --include 'src' --exclude 'src/.internal' --exclude 'test' --exclude 'src/add.js' --exclude 'src/ceil.js' --exclude 'src/compact.js' --exclude 'src/countBy.js' --exclude 'src/defaultTo.js' --exclude 'src/filter.js' --exclude 'src/reduce.js' --exclude 'src/toNumber.js' --exclude 'src/upperFirst.js' mocha"
   },
   "repository": {
     "type": "git",
