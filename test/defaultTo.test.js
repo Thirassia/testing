@@ -20,7 +20,8 @@ describe("defaultTo", () => {
     testMaker.testCase("Returns default value (number) instead of null", 8, [null, 8]);
     testMaker.testCase("Returns value-to-check (number) instead of default (number)", 9, [9, 699]);
     testMaker.testCase("Returns default value (text) instead of undefined", "text", [undefined, "text"]);
-    // testMaker.testCase("Returns default value (function) instead of NaN", testFunction, [NaN, testFunction]);
+    // testMaker.testCase("Returns default value (function) instead of NaN",
+    // testFunction, [NaN, testFunction]);
     testMaker.testCase("Returns value-to-check (false) instead of default value (object)", false, [false, testObject]);
     testMaker.testCase("Returns value-to-check (function) instead of default value (array)", testFunction, [testFunction, testArray]);
     testMaker.testCase("Returns value-to-check (text) instead of default value (number)", "kk", ["kk", -5.3]);

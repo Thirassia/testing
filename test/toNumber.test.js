@@ -23,7 +23,7 @@ describe("toNumber", () => {
     testMaker.testCase("Return text representing octal number as number", 0o17, ["0o17"]);
     testMaker.testCase("Return text representing hexadecimal number as number", 0xF, ["0xF"]);
     testMaker.testCase("Return text starting with whitespace as decimal number", 7.4, ["  7.4"]);
-    testMaker.testCase("Return text reprenting a binary number fraction as NaN", NaN, ["0b11.111"]);
+    testMaker.testCase("Return text representing a binary number fraction as NaN", NaN, ["0b11.111"]);
     testMaker.testCase("Return text not representing a number as NaN", NaN, ["text"]);
     testMaker.testCase("Return text representing a number with multiple dots as NaN", NaN, ["34.2.6"]);
     testMaker.testCase("Return object as NaN", NaN, [{ 23: 43 }]);
