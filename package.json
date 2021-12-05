@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "eslint \"test/**\"",
-    "test": "c8 --all --include 'src' --exclude 'src/.internal' --exclude 'test mocha",
+    "test": "c8 --all --include 'src' --exclude 'src/.internal' --exclude 'test' mocha",
     "coverage": "c8 report --all --include 'src' --exclude 'src/.internal --exclude 'test' --reporter=text-lcov | coveralls"
   },
   "repository": {
